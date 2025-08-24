@@ -65,7 +65,7 @@ def get_about_us_inline():
     """Инлайн клавиатура для раздела О нас"""
     builder = InlineKeyboardBuilder()
     builder.add(
-        InlineKeyboardButton(text="📍 Адрес", url=YANDEX_MAPS_LINK),
+        InlineKeyboardButton(text="🌐 Наш сайт", url="https://cnbridge.ru"),
         InlineKeyboardButton(text="🏢 Карточка организации", callback_data="company_card"),
         InlineKeyboardButton(text="📱 Наши соцсети", callback_data="social_networks")
     )
