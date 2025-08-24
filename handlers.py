@@ -229,7 +229,12 @@ async def supplier_search(message: Message):
 • Сравнение цен
 • Контроль качества
     """
-    await message.answer(text, reply_markup=kb.get_service_action("Поиск поставщика"))
+    try:
+        photo_path = get_file_path("supplier.jpg")
+        photo = FSInputFile(photo_path)
+        await message.answer_photo(photo=photo, caption=text, reply_markup=kb.get_service_action("Поиск поставщика"))
+    except FileNotFoundError:
+        await message.answer(text, reply_markup=kb.get_service_action("Поиск поставщика"))
 
 @router.message(F.text == "📦 Заказ образцов")
 async def sample_order(message: Message):
